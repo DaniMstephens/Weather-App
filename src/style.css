@@ -10,17 +10,44 @@ h1 {
   font-size: 51px;
   margin-bottom: 0px;
 }
+
+.weather-container {
+  display: block;
+  margin: 60px auto;
+  background: linear-gradient(224deg, #2daef6 45.72%, #1373d1 93.27%);
+  max-width: 1011px;
+  padding: 30px;
+  border-radius: 25px;
+}
+
 .date {
   font-size: 32px;
   font-weight: 200;
-  margin: 3px;
+  margin: 3px 0;
 }
-.weather-container {
-  background: linear-gradient(224deg, #2daef6 45.72%, #1373d1 93.27%);
-  max-width: 1011px;
-  margin: 60px auto;
-  padding: 30px;
-  border-radius: 25px;
+
+ul {
+  display: flex;
+  padding: 0;
+  margin-top: 12px;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+}
+.weather-data-container {
+  margin-left: 0;
+}
+
+.weather-data {
+  font-size: 25.4px;
+  font-weight: 200;
+  margin-right: 22px;
+}
+
+.weather-data-value {
+  font-weight: 400;
 }
 
 .search-bar {
