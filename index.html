@@ -16,9 +16,10 @@
   <body>
     <div class="weather-container">
       <header class="search-bar">
-        <form action="">
+        <form class="serarch-form" id="search-form">
           <input
             class="enter-city"
+            id="enter-city"
             type="search"
             placeholder="Search City"
             required
@@ -37,7 +38,7 @@
       <main class="current-weather">
         <!-- container de la info de la ciudad -->
         <div class="city-weather-data">
-          <h1>Barranquilla</h1>
+          <h1 id="city-name-entered">Barranquilla</h1>
           <h2 class="date">Monday 8 Jan, 14:20, Cloudy</h2>
           <div class="weather-data-container">
             <ul>
