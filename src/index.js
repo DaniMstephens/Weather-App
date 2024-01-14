@@ -13,7 +13,61 @@ function city(event) {
 
   // Convertir a Title Case y asignar al h1
   h1.textContent = toTitleCase(cityTyped.value);
+
+  //llamado a la funcion que reemplaza la temperatura
+  updateWeatherData(cityTyped.value);
+}
+
+//funcion para los datos actualizados de la fecha
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let day = date.getDay();
+
+  //esto le agrega el 0 adelante del número,
+  //por que por lo general los minutos/horas cuando son menores de 10 salen solos
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let formattedDay = days[day];
+  return `${formattedDay} ${hours}:${minutes}`;
+}
+
+//funcion que reemplaza los datos de la temperatura
+function displayTemperature(response) {
+  let temperatureDisplay = document.querySelector("#degrees");
+  let temperature = Math.round(response.data.temperature.current);
+
+  temperatureDisplay.innerHTML = `${temperature}`;
+}
+
+function updateWeatherData(city) {
+  let apiKey = "20939f2253oaab2tb9eb2c1b303f1469";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", city);
+
+let currentDataElement = document.querySelector("#current-date");
+let currentDate = new Date();
+
+currentDataElement.innerHTML = formatDate(currentDate);

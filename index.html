@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
+    <!-- link de axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
+    <!-- link de las fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,9 +17,11 @@
     />
   </head>
   <body>
+    <!-- Search Bar -->
     <div class="weather-container">
       <header class="search-bar">
         <form class="serarch-form" id="search-form">
+          <!-- espacio para escribir -->
           <input
             class="enter-city"
             id="enter-city"
@@ -24,7 +29,7 @@
             placeholder="Search City"
             required
           />
-
+          <!-- boton de search -->
           <button class="search-button" type="submit" name="" id="">
             <img
               class="search-icon"
@@ -39,7 +44,7 @@
         <!-- container de la info de la ciudad -->
         <div class="city-weather-data">
           <h1 id="city-name-entered">Barranquilla</h1>
-          <h2 class="date">Monday 8 Jan, 14:20, Cloudy</h2>
+          <h2 class="date" id="current-date"></h2>
           <div class="weather-data-container">
             <ul>
               <li class="weather-data">
@@ -54,7 +59,7 @@
         <!-- container info temperatura actual -->
         <div class="current-temperature-data">
           <span class="emoji">☀️</span>
-          <span class="degrees"> 14 </span>
+          <span class="degrees" id="degrees">24</span>
           <span class="centigrade">°C</span>
         </div>
       </main>
