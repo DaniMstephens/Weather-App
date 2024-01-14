@@ -14,7 +14,6 @@ h1 {
 .weather-container {
   display: block;
   margin: 60px auto;
-
   background: linear-gradient(224deg, #2daef6 45.72%, #1373d1 93.27%);
   max-width: 1011px;
   padding: 30px;
@@ -110,4 +109,12 @@ li {
 .current-temperature-data {
   position: relative;
   top: 50px;
+}
+
+.week-temp {
+  margin: 0 5%;
+  width: 90%;
+  background: linear-gradient(to bottom, #fff 0%, #1169aa 100%);
+  opacity: 0.25;
+  z-index: -1;
 }
