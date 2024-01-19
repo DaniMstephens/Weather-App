@@ -88,18 +88,17 @@ li {
 }
 
 .degrees {
-  font-size: 94px;
+  font-size: 84px;
   font-weight: 800;
 }
 
 .emoji {
   position: relative;
-  font-size: 74px;
-  margin-right: 10px;
+  width: 78px;
 }
 
 .centigrade {
-  font-size: 44px;
+  font-size: 34px;
   font-weight: 200;
   position: relative;
   top: -38px;

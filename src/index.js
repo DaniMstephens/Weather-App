@@ -12,11 +12,13 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let descriptionElement = document.querySelector("#weather-description");
+  let iconElement = document.querySelector("#weather-icon");
 
   temperatureDisplay.innerHTML = `${temperature}`;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windElement.innerHTML = `${response.data.wind.speed} km/h`;
   descriptionElement.innerHTML = `, ${response.data.condition.description}`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji" />`;
 
   //para ver los datos en consola
   //console.log(response.data.temperature);
