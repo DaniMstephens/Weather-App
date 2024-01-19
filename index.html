@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- link del CSS -->
     <link rel="stylesheet" href="src/style.css" />
     <!-- link de axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
@@ -44,23 +45,26 @@
         <!-- container de la info de la ciudad -->
         <div class="city-weather-data">
           <h1 id="city-name-entered">Barranquilla</h1>
-          <h2 class="date" id="current-date"></h2>
+          <time class="date" id="current-date"></time>
+          <span id="weather-description"></span>
           <div class="weather-data-container">
             <ul>
               <li class="weather-data">
-                Humidity <span class="weather-data-value">63%</span>
+                Humidity
+                <span class="weather-data-value" id="humidity"></span>
               </li>
               <li class="weather-data">
-                Wind <span class="weather-data-value">2km/h</span>
+                Wind <span class="weather-data-value" id="wind"></span>
               </li>
             </ul>
           </div>
         </div>
         <!-- container info temperatura actual -->
         <div class="current-temperature-data">
+          <!-- asegurarse de estar llamdo a los id y no a las clases -->
           <span class="emoji">☀️</span>
           <span class="degrees" id="degrees">24</span>
-          <span class="centigrade">°C</span>
+          <span class="centigrade" id="unit">°C</span>
         </div>
       </main>
       <!-- container info temp dias de la semana -->
@@ -68,7 +72,7 @@
         <div class="background-week">
           <div class="content">
             <ul>
-              <li>ddedededbjjbedededed</li>
+              <li>dededededede</li>
             </ul>
           </div>
         </div>

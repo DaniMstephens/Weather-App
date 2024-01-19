@@ -5,6 +5,30 @@ function toTitleCase(str) {
   });
 }
 
+//funcion que reemplaza los datos de la temperatura
+function displayTemperature(response) {
+  let temperatureDisplay = document.querySelector("#degrees");
+  let temperature = Math.round(response.data.temperature.current);
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#weather-description");
+
+  temperatureDisplay.innerHTML = `${temperature}`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed} km/h`;
+  descriptionElement.innerHTML = `, ${response.data.condition.description}`;
+
+  //para ver los datos en consola
+  //console.log(response.data.temperature);
+}
+
+function updateWeatherData(city) {
+  let apiKey = "20939f2253oaab2tb9eb2c1b303f1469";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
 function city(event) {
   event.preventDefault();
   let cityTyped = document.querySelector("#enter-city");
@@ -47,21 +71,6 @@ function formatDate(date) {
 
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
-}
-
-//funcion que reemplaza los datos de la temperatura
-function displayTemperature(response) {
-  let temperatureDisplay = document.querySelector("#degrees");
-  let temperature = Math.round(response.data.temperature.current);
-
-  temperatureDisplay.innerHTML = `${temperature}`;
-}
-
-function updateWeatherData(city) {
-  let apiKey = "20939f2253oaab2tb9eb2c1b303f1469";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-
-  axios.get(apiUrl).then(displayTemperature);
 }
 
 let searchForm = document.querySelector("#search-form");
