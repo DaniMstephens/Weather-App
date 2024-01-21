@@ -110,10 +110,46 @@ li {
   top: 50px;
 }
 
-.week-temp {
+/* .week-temp {
   margin: 0 5%;
   width: 90%;
   background: linear-gradient(to bottom, #fff 0%, #1169aa 100%);
   opacity: 0.25;
   z-index: -1;
+} */
+
+.background-week-forecast {
+  margin: 20px 30px;
+  padding: 1% 5% 1%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(17, 105, 170, 0.25) 100%
+  );
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.week-forecast {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.date-title {
+  margin: auto;
+  font-weight: 300;
+}
+
+.second-temp {
+  margin: -10px;
+  opacity: 0.5;
+}
+
+.footer {
+  margin: 0px 30px;
+  font-size: 12px;
+  text-align: center;
 }

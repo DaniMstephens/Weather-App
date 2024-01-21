@@ -16,8 +16,11 @@ function displayTemperature(response) {
 
   temperatureDisplay.innerHTML = `${temperature}`;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-  windElement.innerHTML = `${response.data.wind.speed} km/h`;
-  descriptionElement.innerHTML = `, ${response.data.condition.description}`;
+  //el formato con el que queremos que aparezca el numero se pone dentro del ${} y lo demas entre parentesis
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
+  descriptionElement.innerHTML = `, ${toTitleCase(
+    response.data.condition.description
+  )}`;
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji" />`;
 
   //para ver los datos en consola
@@ -75,6 +78,34 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
+// funcion para mostrar forecast de la semana
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["MON", "TUE", "WED", "THU", "FRI"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="content-week-forecast">
+    <ul class="week-forecast">
+      <li class="day-1">
+        <h3 class="date-title" id="date-title">
+          ${day}
+        </h3>
+        <p>imahe</p>
+        <p class="main-temp">12</p>
+        <p class="second-temp">13</p>
+      </li>
+    </ul>
+  </div>
+  `;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", city);
 
@@ -82,3 +113,4 @@ let currentDataElement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDataElement.innerHTML = formatDate(currentDate);
+displayForecast();
