@@ -23,8 +23,8 @@ function displayTemperature(response) {
   )}`;
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji" />`;
 
-  //para ver los datos en consola
-  //console.log(response.data.temperature);
+  //aqui se está llamando al corecto forecast de la correcta ciudad
+  getForecast(response.data.city);
 }
 
 function updateWeatherData(city) {
@@ -78,9 +78,18 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
+//funcion para conectar el forecast con la info real
+
+function getForecast(city) {
+  let apiKey = "20939f2253oaab2tb9eb2c1b303f1469";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+  axios(apiUrl).then(displayForecast);
+}
+
 // funcion para mostrar forecast de la semana
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
+function displayForecast(response) {
+  console.log(response.data);
 
   let days = ["MON", "TUE", "WED", "THU", "FRI"];
   let forecastHtml = "";
@@ -103,6 +112,7 @@ function displayForecast() {
   `;
   });
 
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
 
@@ -113,4 +123,6 @@ let currentDataElement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDataElement.innerHTML = formatDate(currentDate);
-displayForecast();
+
+//esto muestra el tiempo de la ciudad que pongamos acá cuando se abre la página
+updateWeatherData("Barranquilla");
