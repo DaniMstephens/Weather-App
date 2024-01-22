@@ -104,9 +104,9 @@ function displayForecast(response) {
         <h3 class="date-title" id="date-title">
           ${day}
         </h3>
-        <p>imahe</p>
-        <div class="main-temp">${Math.round(day.temperature.maximum)}°</div>
-        <p class="second-temp">13</p>
+        <span><img src="${day.condition.icon_url}" class="temp-icon"/></span>
+        <p class="main-temp">${Math.round(day.temperature.maximum)}°</p>
+        <p class="second-temp">${Math.round(day.temperature.minimum)}°</p>
       </li>
     </ul>
   </div>
