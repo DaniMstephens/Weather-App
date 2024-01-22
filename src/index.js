@@ -82,7 +82,7 @@ function formatDate(date) {
 //funcion que dará los dias del forecasts
 function formatDay(weekday) {
   let date = new Date(weekday * 1000);
-  let days = ["SUM", "MON", "TUE", "WED", "THU", "FRY", "SAT"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[date.getDay()];
 }

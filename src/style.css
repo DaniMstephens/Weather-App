@@ -140,7 +140,7 @@ li {
 }
 .date-title {
   margin: auto;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .main-temp {
@@ -154,6 +154,12 @@ li {
 
 .temp-icon {
   width: 70px;
+}
+.name {
+  color: #fff;
+}
+.name:visited {
+  color: #fff;
 }
 .footer {
   margin: 0px 30px;
