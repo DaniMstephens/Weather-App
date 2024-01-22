@@ -79,6 +79,14 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
+//funcion que dará los dias del forecasts
+function formatDay(weekday) {
+  let date = new Date(weekday * 1000);
+  let days = ["SUM", "MON", "TUE", "WED", "THU", "FRY", "SAT"];
+
+  return days[date.getDay()];
+}
+
 //funcion para conectar el forecast con la info real
 
 function getForecast(city) {
@@ -103,7 +111,7 @@ function displayForecast(response) {
     <ul class="week-forecast">
       <li class="day-1">
         <h3 class="date-title" id="date-title">
-          ${day}
+          ${formatDay(day.time)}
         </h3>
         <span><img src="${day.condition.icon_url}" class="temp-icon"/></span>
         <p class="main-temp">${Math.round(day.temperature.maximum)}°</p>
