@@ -94,10 +94,11 @@ function displayForecast(response) {
 
   let forecastHtml = "";
 
-  response.data.daily.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
       <div class="content-week-forecast">
     <ul class="week-forecast">
       <li class="day-1">
@@ -111,6 +112,7 @@ function displayForecast(response) {
     </ul>
   </div>
   `;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
