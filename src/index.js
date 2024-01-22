@@ -16,6 +16,7 @@ function displayTemperature(response) {
 
   temperatureDisplay.innerHTML = `${temperature}`;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+
   //el formato con el que queremos que aparezca el numero se pone dentro del ${} y lo demas entre parentesis
   windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
   descriptionElement.innerHTML = `, ${toTitleCase(
@@ -29,7 +30,7 @@ function displayTemperature(response) {
 
 function updateWeatherData(city) {
   let apiKey = "20939f2253oaab2tb9eb2c1b303f1469";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -91,20 +92,20 @@ function getForecast(city) {
 function displayForecast(response) {
   console.log(response.data);
 
-  let days = ["MON", "TUE", "WED", "THU", "FRI"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
-      `<div class="content-week-forecast">
+      `
+      <div class="content-week-forecast">
     <ul class="week-forecast">
       <li class="day-1">
         <h3 class="date-title" id="date-title">
           ${day}
         </h3>
         <p>imahe</p>
-        <p class="main-temp">12</p>
+        <div class="main-temp">${Math.round(day.temperature.maximum)}°</div>
         <p class="second-temp">13</p>
       </li>
     </ul>
